@@ -13,7 +13,17 @@
 
 ## Описание шагов 
 
-### 1. Создаем DummyAPI коллекцию: 
+### 1. Создаем DummyAPI окружение
+![image](https://user-images.githubusercontent.com/112896404/202894771-341f8e3b-0633-499b-8de1-1fde196ae04d.png)
+
+**1) Добавляем в окружение базовый URL, как переменную.** `Key : url; Value : https://dummyapi.io/data/v1/`
+
+**2) Добавляем в окружение переменные user_id, post_id, comment_id. Значение данным переменным не задаем.**
+
+![image](https://user-images.githubusercontent.com/112896404/202896142-af84a6dd-8421-4430-873e-d38c03a416be.png)
+
+
+### 2. Создаем DummyAPI коллекцию: 
 
 **1) Добавляем в коллекцию токен авторизации, присвоенный сайтом.** 
 ```
@@ -77,15 +87,9 @@ Type : API Key; Key : app-id; Value : 63760c781f1d8505e69a587c
 ![image](https://user-images.githubusercontent.com/112896404/202914639-c1605806-c224-45cf-b1ae-8dca6079e5b3.png)
 ![image](https://user-images.githubusercontent.com/112896404/202914859-e1d9fa4a-7c78-460c-815b-185554e279df.png)
 
+**10) По аналогии заполняем данные для объектов Post, Comment, Tags**
 
 
-### 2. Создаем DummyAPI окружение
-![image](https://user-images.githubusercontent.com/112896404/202894771-341f8e3b-0633-499b-8de1-1fde196ae04d.png)
 
-**1) Добавляем в окружение базовый URL, как переменную.** `Key : url; Value : https://dummyapi.io/data/v1/`
-
-**2) Добавляем в окружение переменные user_id, post_id, comment_id. Значение данным переменным не задаем.**
-
-![image](https://user-images.githubusercontent.com/112896404/202896142-af84a6dd-8421-4430-873e-d38c03a416be.png)
 
 

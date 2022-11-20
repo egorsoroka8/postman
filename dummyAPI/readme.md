@@ -41,7 +41,8 @@
    - Update User : Method : PUT | Path : {{url}}user/{{user_id}}
    - Delete User : Method : DELETE | Path : {{url}}user/{{user_id}}
    ```
-**6) Заполняем тело POST запроса:**
+**6) Заполняем тело POST запроса. Тип данных JSON.**
+   
    
    Для данных, кроме *title, gender, timezone, state* в библиотеки Postman можно задать динамическую переменную с формированием рандомного значения.
    
@@ -49,11 +50,27 @@
 
    Для *title, gender, timezone, state* задаем имена переменных :
    ```
-   title : {{$randomTitle}}
-   gender : {{$randomGender}}
-   timezone : {{$randomTimezone}}
-   state : {{$randomState}}
+   "title" : "{{$randomTitle}}"
+   "gender" : "{{$randomGender}}"
+   "timezone" : "{{$randomTimezone}}"
+   "state" : "{{$randomState}}"
    ```
+   В коллекции, во вкладке PRE-REQUESTS, создаем для данных переменных массивы.
+   ```
+   // User Data
+var Gender = ["male", "female", "other"] // create array 'Gender'
+pm.environment.set("$randomGender", Gender[Math.floor(Math.random() * Gender.length)]) // set $randomGender as any value from Gender array
+
+var Title = ["mr", "ms", "mrs", "miss", "dr"]
+pm.environment.set("$randomTitle", Title[Math.floor(Math.random() * Title.length)])
+
+var Timezone = ["-12:00", "-9:00", "0:00", "+7:00", "+12:00"]
+pm.environment.set("$randomTimezone", Timezone[Math.floor(Math.random() * Timezone.length)])
+
+var State = [ "AK - Alaska", "AL - Alabama", "AR - Arkansas", "AS - American Samoa", "AZ - Arizona"]
+pm.environment.set("$randomState", State[Math.floor(Math.random() * State.length)])
+   ```
+![image](https://user-images.githubusercontent.com/112896404/202898904-32c83931-8ef1-42be-9d43-5d460e0130bd.png)
 
 
 ### 2. Создаем DummyAPI окружение

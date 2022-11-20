@@ -37,3 +37,8 @@
 ![image](https://user-images.githubusercontent.com/112896404/202894771-341f8e3b-0633-499b-8de1-1fde196ae04d.png)
 
 **1) Добавляем в окружение базовый URL, как переменную.** `Key : url; Value : https://dummyapi.io/data/v1/`
+
+**2) Добавляем в окружение переменные user_id, post_id, comment_id. Значение данным переменным не задаем.**
+
+![image](https://user-images.githubusercontent.com/112896404/202896142-af84a6dd-8421-4430-873e-d38c03a416be.png)
+

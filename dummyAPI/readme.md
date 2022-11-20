@@ -13,19 +13,22 @@
 
 ## Описание шагов 
 
-### 1. Создаем DummyAPI окружение
-![image](https://user-images.githubusercontent.com/112896404/202894771-341f8e3b-0633-499b-8de1-1fde196ae04d.png)
+### 1. Создаем DummyAPI окружение :
 
-**1) Добавляем в окружение базовый URL, как переменную.** `Key : url; Value : https://dummyapi.io/data/v1/`
+**1) Добавляем в окружение базовый URL, как переменную.** 
 
-**2) Добавляем в окружение переменные user_id, post_id, comment_id. Значение данным переменным не задаем.**
+```Key : url; Value : https://dummyapi.io/data/v1/```
 
-![image](https://user-images.githubusercontent.com/112896404/202896142-af84a6dd-8421-4430-873e-d38c03a416be.png)
+**2) Добавляем в окружение переменные user_id, post_id, comment_id. Значение этим переменным не задаем.**
+
+![image](https://user-images.githubusercontent.com/112896404/202923149-36e9c852-e8d4-4c19-a3e5-17a901b8657f.png)
+
 
 
 ### 2. Создаем DummyAPI коллекцию: 
 
 **1) Добавляем в коллекцию токен авторизации, присвоенный сайтом.** 
+
 ```
 Type : API Key; Key : app-id; Value : 63760c781f1d8505e69a587c
 ```
@@ -89,7 +92,11 @@ Type : API Key; Key : app-id; Value : 63760c781f1d8505e69a587c
 
 **10) По аналогии заполняем данные для объектов Post, Comment, Tags**
 
+**11) Формируем коллекцию перед запуском тестов. Порядок запросов POST -> GET -> PUT -> DELETE**
+![image](https://user-images.githubusercontent.com/112896404/202923591-fb66c2d8-416d-4403-babb-683711946bdb.png)
 
+**12) Результат после запуска коллекции, все запросы имеют статус 200 OK.
 
+![image](https://user-images.githubusercontent.com/112896404/202923714-9757fcc5-779d-4491-9556-04087063c910.png)
 
 

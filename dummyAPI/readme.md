@@ -30,7 +30,30 @@
 
 **4) Добавляем в папки запросы.**
 
-![image](https://user-images.githubusercontent.com/112896404/202895267-b48c2485-b14e-42f1-93e5-5d4e8f767203.png)
+![image](https://user-images.githubusercontent.com/112896404/202896513-6410c6ac-f55a-497b-baea-acbcca09f8a6.png)
+
+**5) Задаем метод и путь для наших запросов (рассмотрим данный шаг на основе объекта User).**
+   
+   ```
+   - Get User by List : Method : GET | Path : {{url}}user/
+   - Get User by ID : Method : GET | Path : {{url}}user/{{user_id}}
+   - Create User :  Method : POST | Path : {{url}}user/create
+   - Update User : Method : PUT | Path : {{url}}user/{{user_id}}
+   - Delete User : Method : DELETE | Path : {{url}}user/{{user_id}}
+   ```
+**6) Заполняем тело POST запроса:**
+   
+   Для данных, кроме *title, gender, timezone, state* в библиотеки Postman можно задать динамическую переменную с формированием рандомного значения.
+   
+   ![image](https://user-images.githubusercontent.com/112896404/202897583-d3e05403-145d-4ba3-ad36-71c6e6c0f39f.png)
+
+   Для *title, gender, timezone, state* задаем имена переменных :
+   ```
+   title : {{$randomTitle}}
+   gender : {{$randomGender}}
+   timezone : {{$randomTimezone}}
+   state : {{$randomState}}
+   ```
 
 
 ### 2. Создаем DummyAPI окружение
@@ -41,4 +64,5 @@
 **2) Добавляем в окружение переменные user_id, post_id, comment_id. Значение данным переменным не задаем.**
 
 ![image](https://user-images.githubusercontent.com/112896404/202896142-af84a6dd-8421-4430-873e-d38c03a416be.png)
+
 

@@ -55,22 +55,13 @@
    "timezone" : "{{$randomTimezone}}"
    "state" : "{{$randomState}}"
    ```
-   В коллекции, во вкладке PRE-REQUESTS, создаем для данных переменных массивы.
-   ```
-   // User Data
-var Gender = ["male", "female", "other"] // create array 'Gender'
-pm.environment.set("$randomGender", Gender[Math.floor(Math.random() * Gender.length)]) // set $randomGender as any value from Gender array
+   Во вкладке коллекции PRE-REQUESTS, создаем для данных переменных массивы. 
 
-var Title = ["mr", "ms", "mrs", "miss", "dr"]
-pm.environment.set("$randomTitle", Title[Math.floor(Math.random() * Title.length)])
+![image](https://user-images.githubusercontent.com/112896404/202899553-c4d23ec5-9c8b-4fa4-9862-d65545770897.png)
 
-var Timezone = ["-12:00", "-9:00", "0:00", "+7:00", "+12:00"]
-pm.environment.set("$randomTimezone", Timezone[Math.floor(Math.random() * Timezone.length)])
+В конечном итоге, имеем формирование рандомного значения для каждого параметра.
+![image](https://user-images.githubusercontent.com/112896404/202899616-527b6e43-c813-44ca-9e8b-63e0a529e795.png)
 
-var State = [ "AK - Alaska", "AL - Alabama", "AR - Arkansas", "AS - American Samoa", "AZ - Arizona"]
-pm.environment.set("$randomState", State[Math.floor(Math.random() * State.length)])
-   ```
-![image](https://user-images.githubusercontent.com/112896404/202898904-32c83931-8ef1-42be-9d43-5d460e0130bd.png)
 
 
 ### 2. Создаем DummyAPI окружение

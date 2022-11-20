@@ -45,7 +45,7 @@
 
 ![image](https://user-images.githubusercontent.com/112896404/202896513-6410c6ac-f55a-497b-baea-acbcca09f8a6.png)
 
-**6) Задаем метод и путь для наших запросов (рассмотрим данный шаг на основе объекта User).**
+**6) Задаем метод и путь для наших запросов (дальнейшие шаги рассмотрим на основе объекта User).**
    
    ```
    - Get User by List : Method : GET | Path : {{url}}user/

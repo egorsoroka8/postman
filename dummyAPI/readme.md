@@ -7,4 +7,33 @@
 - Создание тестового окружения с использованием автозаполнения переменных.
 - Добавлением SNIPPETS тестов на проверку статус кода ("Status code is 200").
 - Использование динамических переменных из библиотеки Postman для создания объектов ($random...).
-- Создание массивов для недостающих переменных в PRE-REQUESTS. 
+- Создание массивов для недостающих переменных в PRE-REQUESTS.
+- Добавление документации в раздел Documentation.
+
+
+## Описание шагов 
+
+### 1. Создаем DummyAPI коллекцию: 
+
+**1) Добавляем в коллекцию токен авторизации, присвоенный сайтом.** 
+`Type : API Key; Key : app-id; Value : 63760c781f1d8505e69a587c`
+
+![image](https://user-images.githubusercontent.com/112896404/202894953-5917047d-c43f-4de3-a562-001d2b4d46a6.png)
+
+**2) Добавляем в коллекцию SNIPPETS тест на проверку кода "Status code is 200".**
+
+![image](https://user-images.githubusercontent.com/112896404/202895203-0f577d8d-69c6-42a4-8798-773a0dbd0c6d.png)
+
+**3) Разбиваем коллекцию на папки по объектам : User, Post, Comment, Tags.**
+
+![image](https://user-images.githubusercontent.com/112896404/202894550-15905afd-2a76-4829-84e5-6bed3f6c35bc.png)
+
+**4) Добавляем в папки запросы.**
+
+![image](https://user-images.githubusercontent.com/112896404/202895267-b48c2485-b14e-42f1-93e5-5d4e8f767203.png)
+
+
+### 2. Создаем DummyAPI окружение
+![image](https://user-images.githubusercontent.com/112896404/202894771-341f8e3b-0633-499b-8de1-1fde196ae04d.png)
+
+**1) Добавляем в окружение базовый URL, как переменную.** `Key : url; Value : https://dummyapi.io/data/v1/`

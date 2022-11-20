@@ -55,13 +55,12 @@
    - Delete User : Method : DELETE | Path : {{url}}user/{{user_id}}
    ```
 **7) Заполняем тело POST запроса. Формат данных JSON.**
-   
-   
-    Для данных, кроме *title, gender, timezone, state* можно задать динамическую переменную с формированием рандомного значения из библиотеки Postman.
+
+   Для данных, кроме *title, gender, timezone, state* задам динамическую переменную с формированием рандомного значения из библиотеки Postman.
    
    ![image](https://user-images.githubusercontent.com/112896404/202897583-d3e05403-145d-4ba3-ad36-71c6e6c0f39f.png)
 
-   Для *title, gender, timezone, state* задаем имена переменных :
+   Для *title, gender, timezone, state* задаем имена переменных в стилистики Postman :
    ```
    "title" : "{{$randomTitle}}"
    "gender" : "{{$randomGender}}"
@@ -75,7 +74,7 @@
 В конечном итоге, имеем формирование рандомного значения для каждого параметра.
 ![image](https://user-images.githubusercontent.com/112896404/202899616-527b6e43-c813-44ca-9e8b-63e0a529e795.png)
 
-**8) Отправляем POST запрос, все данные сформированы.**
+**8) Отправляем POST запрос на создание User, все данные сформированы.**
 
 ![image](https://user-images.githubusercontent.com/112896404/202899995-c15c2ca6-5f50-43d7-a370-816df9eb7526.png)
 

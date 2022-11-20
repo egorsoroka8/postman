@@ -10,7 +10,7 @@
 - Создание массивов для недостающих переменных в PRE-REQUESTS.
 - Добавление документации в раздел Documentation.
 
-Файл коллекции можно найти по [ссылке](https://github.com/egorsoroka8/postman/dummyAPI/DummyAPI.postman_collection.json)
+Файл коллекции можно найти по [ссылке](https://github.com/egorsoroka8/postman/tree/main/dummyAPI/DummyAPI.postman_collection.json)
 
 
 ## Пошаговое описание

@@ -16,7 +16,9 @@
 ### 1. Создаем DummyAPI коллекцию: 
 
 **1) Добавляем в коллекцию токен авторизации, присвоенный сайтом.** 
-`Type : API Key; Key : app-id; Value : 63760c781f1d8505e69a587c`
+```
+Type : API Key; Key : app-id; Value : 63760c781f1d8505e69a587c
+```
 
 ![image](https://user-images.githubusercontent.com/112896404/202894953-5917047d-c43f-4de3-a562-001d2b4d46a6.png)
 
@@ -41,10 +43,10 @@
    - Update User : Method : PUT | Path : {{url}}user/{{user_id}}
    - Delete User : Method : DELETE | Path : {{url}}user/{{user_id}}
    ```
-**6) Заполняем тело POST запроса. Тип данных JSON.**
+**6) Заполняем тело POST запроса. Формат данных JSON.**
    
    
-   Для данных, кроме *title, gender, timezone, state* в библиотеки Postman можно задать динамическую переменную с формированием рандомного значения.
+   Для данных, кроме *title, gender, timezone, state* можно задать динамическую переменную с формированием рандомного значения из библиотеки Postman.
    
    ![image](https://user-images.githubusercontent.com/112896404/202897583-d3e05403-145d-4ba3-ad36-71c6e6c0f39f.png)
 
@@ -66,9 +68,15 @@
 
 ![image](https://user-images.githubusercontent.com/112896404/202899995-c15c2ca6-5f50-43d7-a370-816df9eb7526.png)
 
-**8) во кладке тест прописываем скрипт на добавление переменной в окружение**
-**9) отправляем повторно запрос**
-**10) проверяем что новый id прописан в окружении**
+**8) Во вкладке тест прописываем скрипт на добавление id пользователя из тела ответа в параметры окружения, значение переменной устанавливаем user_id**
+
+![image](https://user-images.githubusercontent.com/112896404/202914311-138c7af7-a403-413b-901d-84a9e01676ac.png)
+
+**9) Отправляем повторно запрос и проверяем что новый id записан в окружение**
+
+![image](https://user-images.githubusercontent.com/112896404/202914639-c1605806-c224-45cf-b1ae-8dca6079e5b3.png)
+![image](https://user-images.githubusercontent.com/112896404/202914859-e1d9fa4a-7c78-460c-815b-185554e279df.png)
+
 
 
 ### 2. Создаем DummyAPI окружение

@@ -10,7 +10,7 @@
 - Создание массивов для недостающих переменных в PRE-REQUESTS.
 - Добавление документации в раздел Documentation.
 
-Файлы [коллекция](https://github.com/egorsoroka8/postman/tree/main/dummyAPI/DummyAPI.postman_collection.json), [окружение](https://github.com/egorsoroka8/postman/blob/main/dummyAPI/Dummy%20API.postman_environment.json)
+Файлы : [коллекция](https://github.com/egorsoroka8/postman/tree/main/dummyAPI/DummyAPI.postman_collection.json), [окружение](https://github.com/egorsoroka8/postman/blob/main/dummyAPI/Dummy%20API.postman_environment.json).
 
 
 ## Пошаговое описание
@@ -86,16 +86,35 @@
 
 **10) Отправляем повторно запрос и проверяем что новый id записан в окружение**
 
-![image](https://user-images.githubusercontent.com/112896404/202914639-c1605806-c224-45cf-b1ae-8dca6079e5b3.png)
-![image](https://user-images.githubusercontent.com/112896404/202914859-e1d9fa4a-7c78-460c-815b-185554e279df.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/112896404/202914639-c1605806-c224-45cf-b1ae-8dca6079e5b3.png">
+</p>
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/112896404/202914859-e1d9fa4a-7c78-460c-815b-185554e279df.png">
+</p>
 
 **11) По аналогии заполняем данные для объектов Post, Comment, Tags**
 
-**12) Формируем коллекцию перед запуском тестов. Порядок запросов POST -> GET -> PUT -> DELETE**
-![image](https://user-images.githubusercontent.com/112896404/202923591-fb66c2d8-416d-4403-babb-683711946bdb.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/112896404/202989233-d2cf9f88-0c7d-4d81-bef5-d96703e28d84.png">
+</p>
 
-**13) Результат после запуска коллекции, все запросы имеют статус 200 OK.**
+### Запуск тестов.
 
-![image](https://user-images.githubusercontent.com/112896404/202923714-9757fcc5-779d-4491-9556-04087063c910.png)
+**1) Формируем коллекцию перед запуском тестов. Порядок запросов POST -> GET -> PUT -> DELETE**
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/112896404/202923591-fb66c2d8-416d-4403-babb-683711946bdb.png">
+</p>
+
+**2) Результат после запуска коллекции, все запросы имеют статус 200 OK.**
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/112896404/202988848-dbc50ed1-1fd9-4d57-9e97-c76005f90906.png">
+</p>
 
 
+<p align="center">
+  <img src="">
+</p>

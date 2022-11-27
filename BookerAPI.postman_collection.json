@@ -1,0 +1,475 @@
+{
+	"info": {
+		"_postman_id": "181a31dd-44b7-4af1-ae12-b382747dcb56",
+		"name": "BookerAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21955493"
+	},
+	"item": [
+		{
+			"name": "Auth - CreateToken",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Environment variables setting\r",
+							"\r",
+							"jsonData=pm.response.json();\r",
+							"pm.environment.set(\"token\", jsonData.token);\r",
+							"\r",
+							"pm.test(\"Success\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"admin\",\r\n    \"password\" : \"password123\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/auth",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Booking",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Environment variables setting\r",
+							"\r",
+							"jsonDataId=pm.response.json();\r",
+							"pm.environment.set(\"id\", jsonDataId.bookingid);\r",
+							"\r",
+							"jsonDataFirstName=pm.response.json();\r",
+							"pm.environment.set(\"firstname\", jsonDataFirstName.booking.firstname);\r",
+							"\r",
+							"jsonDataLastName=pm.response.json();\r",
+							"pm.environment.set(\"lastname\", jsonDataLastName.booking.lastname);\r",
+							"\r",
+							"jsonDataCheckIn=pm.response.json();\r",
+							"pm.environment.set(\"checkin\", jsonDataCheckIn.booking.bookingdates.checkin);\r",
+							"\r",
+							"jsonDataCheckOut=pm.response.json();\r",
+							"pm.environment.set(\"checkout\", jsonDataCheckOut.booking.bookingdates.checkout);\r",
+							"\r",
+							"// Status code test\r",
+							"\r",
+							"pm.test(\"Success\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstname\" : \"{{$randomFirstName}}\",\r\n    \"lastname\" : \"{{$randomLastName}}\",\r\n    \"totalprice\" : {{$randomInt}},\r\n    \"depositpaid\" : {{$randomBoolean}},\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"{{$randomDateRecent}}\",\r\n        \"checkout\" : \"{{$randomDateFuture}}\"\r\n        },\r\n    \"additionalneeds\" : \"{{$randomNoun}}\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/booking",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"booking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetBooking IDs (All)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Status code test\r",
+							"\r",
+							"pm.test(\"Success\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/booking?firstname={{firstname}}&lastname={{lastname}}&checkin={{checkin}}&checkout={{checkout}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"booking"
+					],
+					"query": [
+						{
+							"key": "firstname",
+							"value": "{{firstname}}"
+						},
+						{
+							"key": "lastname",
+							"value": "{{lastname}}"
+						},
+						{
+							"key": "checkin",
+							"value": "{{checkin}}"
+						},
+						{
+							"key": "checkout",
+							"value": "{{checkout}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Booking by ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Status code test\r",
+							"\r",
+							"pm.test(\"Success\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/booking/{{id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"booking",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Booking",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Environment variables setting\r",
+							"\r",
+							"jsonDataFirstName=pm.response.json();\r",
+							"pm.environment.set(\"firstname\", jsonDataFirstName.firstname);\r",
+							"\r",
+							"jsonDataLastName=pm.response.json();\r",
+							"pm.environment.set(\"lastname\", jsonDataLastName.lastname);\r",
+							"\r",
+							"jsonDataCheckIn=pm.response.json();\r",
+							"pm.environment.set(\"checkin\", jsonDataCheckIn.bookingdates.checkin);\r",
+							"\r",
+							"jsonDataCheckOut=pm.response.json();\r",
+							"pm.environment.set(\"checkout\", jsonDataCheckOut.bookingdates.checkout);\r",
+							"\r",
+							"//Status code test\r",
+							"\r",
+							"pm.test(\"Success\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"rawToken=pm.environment.get(\"token\");\r",
+							"\r",
+							"let AuthToken =\"token=\" + rawToken;\r",
+							"\r",
+							"pm.request.headers.add({\r",
+							"    key : 'Cookie',\r",
+							"    value : AuthToken\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstname\" : \"{{$randomFirstName}}\",\r\n    \"lastname\" : \"{{$randomLastName}}\",\r\n    \"totalprice\" : {{$randomInt}},\r\n    \"depositpaid\" : {{$randomBoolean}},\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"{{$randomDateRecent}}\",\r\n        \"checkout\" : \"{{$randomDateFuture}}\"\r\n        },\r\n    \"additionalneeds\" : \"{{$randomNoun}}\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/booking/{{id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"booking",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Partial Update Booking",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Environment variables setting\r",
+							"\r",
+							"jsonDataFirstName=pm.response.json();\r",
+							"pm.environment.set(\"firstname\", jsonDataFirstName.firstname);\r",
+							"\r",
+							"jsonDataLastName=pm.response.json();\r",
+							"pm.environment.set(\"lastname\", jsonDataLastName.lastname);\r",
+							"\r",
+							"// Status code test\r",
+							"\r",
+							"pm.test(\"Success\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"rawToken=pm.environment.get(\"token\");\r",
+							"\r",
+							"let AuthToken =\"token=\" + rawToken;\r",
+							"\r",
+							"pm.request.headers.add({\r",
+							"    key : 'Cookie',\r",
+							"    value : AuthToken\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstname\" : \"{{$randomFirstName}}\",\r\n    \"lastname\" : \"{{$randomLastName}}\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/booking/{{id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"booking",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Booking",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Status code test\r",
+							"\r",
+							"pm.test(\"Succes\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"rawToken=pm.environment.get(\"token\");\r",
+							"\r",
+							"let AuthToken =\"token=\" + rawToken;\r",
+							"\r",
+							"pm.request.headers.add({\r",
+							"    key : 'Cookie',\r",
+							"    value : AuthToken\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/booking/{{id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"booking",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
